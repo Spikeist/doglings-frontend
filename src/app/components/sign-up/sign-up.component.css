@@ -20,3 +20,26 @@
 .login-link button:hover {
     background-color: #0056b3;
 }
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    width: 100%;
+    max-width: 780px;
+    height: 640px;
+    background-color: bisque;
+}
