@@ -9,25 +9,21 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent {
   credentials: any = {};
+  errorMessage: string = '';
 
   constructor(private userService: UserService, private router: Router) {}
 
-  login(credentials: any): void {
-    this.userService.login(credentials).subscribe(
-      response => {
+  login(): void {
+    this.userService.login(this.credentials).subscribe(
+      (response) => {
         console.log('User logged in successfully:', response);
-        localStorage.setItem('userId', response.userId);
-        localStorage.setItem('token', response.token);
-
-        // log out
-        // localStorage.removeItem('userId');
-        // localStorage.removeItem('token');
-
+        sessionStorage.setItem('currentUser', JSON.stringify(response.user));
         this.userService.redirectToWelcome();
         alert('You have been logged in!');
       },
-      error => {
+      (error) => {
         console.error('Error logging in:', error);
+        this.errorMessage = 'Invalid email or password';
       }
     );
   }

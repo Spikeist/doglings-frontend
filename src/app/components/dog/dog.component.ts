@@ -47,4 +47,8 @@ export class DogComponent implements OnInit {
       console.error('No dog ID provided in the URL.');
     }
   }
+
+  isLoggedIn(): boolean {
+    return this.userService.isLoggedIn();
+  }
 }
