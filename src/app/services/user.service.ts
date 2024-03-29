@@ -8,7 +8,6 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private loggedIn = false;
   private baseUrl = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -33,11 +32,12 @@ export class UserService {
   }
 
   isLoggedIn(): boolean {
-    return this.loggedIn;
+    return !!localStorage.getItem('token');
   }
 
   logout(): void {
-    sessionStorage.clear();
-    this.loggedIn = false;
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.router.navigate(['/login']);
   }
 }

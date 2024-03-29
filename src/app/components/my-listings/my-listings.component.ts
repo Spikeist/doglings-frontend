@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Dog } from 'src/app/models/dog.model';
 import { DogService } from 'src/app/services/dog.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-my-listings',
@@ -23,7 +24,7 @@ export class MyListingsComponent {
     userId: ''
   }; 
 
-  constructor(private router: Router, private dogService: DogService) { }
+  constructor(private router: Router, private dogService: DogService, private userService: UserService) { }
 
   redirectToCreateListing(): void {
     this.router.navigate(['/create-listing']);
@@ -60,5 +61,9 @@ export class MyListingsComponent {
         console.error('Error deleting dog listing:', error);
       }
     );
+  }
+
+  isLoggedIn(): boolean {
+    return this.userService.isLoggedIn();
   }
 }

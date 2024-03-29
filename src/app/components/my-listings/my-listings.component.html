@@ -1,25 +1,31 @@
-<button (click)="redirectToCreateListing()">Create Listing</button>
+<div *ngIf="isLoggedIn()">
+    <button (click)="redirectToCreateListing()">Create Listing</button>
 
-<h2>My Listings</h2>
+    <h2>My Listings</h2>
 
-<h3>Yet to be sold:</h3>
-<div *ngFor="let dog of unsoldDogs">
-    <div class="dog-item">
-        <img [src]="dog.image" [alt]="dog.name">
-        <p>{{ dog.name }}</p>
-        <p>Price: {{ dog.price }}</p>
-        <button (click)="editDog(dog)">Edit</button>
-        <button (click)="deleteDog(dog.id)">Delete</button>
+    <h3>Yet to be sold:</h3>
+    <div *ngFor="let dog of unsoldDogs">
+        <div class="dog-item">
+            <img [src]="dog.image" [alt]="dog.name">
+            <p>{{ dog.name }}</p>
+            <p>Price: {{ dog.price }}</p>
+            <button (click)="editDog(dog)">Edit</button>
+            <button (click)="deleteDog(dog.id)">Delete</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Sold:</h3>
+    <div *ngFor="let dog of soldDogs">
+        <div class="dog-item">
+            <img [src]="dog.image" [alt]="dog.name">
+            <p>{{ dog.name }}</p>
+            <p>Price: {{ dog.price }}</p>
+        </div>
     </div>
 </div>
 
-<hr>
-
-<h3>Sold:</h3>
-<div *ngFor="let dog of soldDogs">
-    <div class="dog-item">
-        <img [src]="dog.image" [alt]="dog.name">
-        <p>{{ dog.name }}</p>
-        <p>Price: {{ dog.price }}</p>
-    </div>
+<div *ngIf="!isLoggedIn()">
+    <p>Please log in to access this content.</p>
 </div>
