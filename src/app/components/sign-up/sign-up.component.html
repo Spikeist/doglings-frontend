@@ -46,9 +46,53 @@
 <main>
   <div class="box">
     <div class="sign-up-box">
-      <div class="forms-wrap">
-        
-      </div>
+
+      <form (submit)="signUp()">
+
+        <div class="heading">
+          <h2>Get Started</h2>
+          <h6>Already have an account? </h6>
+          <a href="#" class="switch"> Sign Up</a>
+        </div>
+        <div class="actual-form">
+
+          <div class="input-wrap">
+            <input type="text" class="input-field" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required/>
+            <label for="firstName"> First Name</label>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="input-field" id="lastName" name="lastName" [(ngModel)]="formData.lastName" required/>
+            <label for="lastName"> Last Name</label>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="input-field" id="username" name="username" [(ngModel)]="formData.username" required/>
+            <label for="username"> Username</label>
+          </div>
+          <div class="input-wrap">
+            <input type="password" class="input-field" id="password" name="password" [(ngModel)]="formData.password" required/>
+            <label for="password"> Password </label>
+          </div>
+          <div class="input-wrap">
+            <input type="email" class="input-field" id="email" name="email" [(ngModel)]="formData.email" required/>
+            <label for="email">Email</label>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="input-field" id="country" name="country" [(ngModel)]="formData.country" required/>
+            <label for="country"> Country </label>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="input-field" id="state" name="state" [(ngModel)]="formData.state" required/>
+            <label for="state">State</label>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="input-field" id="province" name="province" [(ngModel)]="formData.province" required/>
+            <label for="province">Province</label>
+          </div>
+          <input type="submit" value="Sign In" class="sign-btn">
+        </div>
+
+      </form>
+
     </div>
   </div>
 </main>
