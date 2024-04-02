@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Dog } from 'src/app//models/dog.model';
 import { DogService } from 'src/app/services/dog.service';
 
@@ -14,6 +14,7 @@ export class EditListingComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private dogService: DogService
   ) { }
 
@@ -30,12 +31,13 @@ export class EditListingComponent {
   }
 
   updateDog(): void {
-    this.dogService.editDogInfo(this.dog).subscribe(
+    this.dogService.updateDogInfo(this.dog).subscribe(
       () => {
-        console.log('Dog details updated successfully');
+        console.log('Dog information updated successfully');
+        this.router.navigate(['/my-listings']);
       },
       error => {
-        console.error('Error updating dog details:', error);
+        console.error('Error updating dog information:', error);
       }
     );
   }

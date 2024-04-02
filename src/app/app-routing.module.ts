@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LogInComponent },
   { path: 'dog/:id', component: DogComponent },
-  { path: 'edit/:id', component: EditListingComponent },
+  { path: 'edit-listing/:id', component: EditListingComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', redirectTo: '/welcome' }
 ];

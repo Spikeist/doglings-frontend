@@ -12,9 +12,9 @@ import { ListingsComponent } from './components/listings/listings.component';
 import { MyListingsComponent } from './components/my-listings/my-listings.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { CreateListingComponent } from './components/create-listing/create-listing.component';
-import { Dog } from './models/dog.model';
 import { DogComponent } from './components/dog/dog.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { EditListingComponent } from './components/edit-listing/edit-listing.com
     LogInComponent,
     CreateListingComponent,
     DogComponent,
-    EditListingComponent
+    EditListingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

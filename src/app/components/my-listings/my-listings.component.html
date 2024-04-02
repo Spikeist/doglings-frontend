@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div *ngIf="isLoggedIn()">
     <button (click)="redirectToCreateListing()">Create Listing</button>
 
@@ -9,7 +11,7 @@
             <img [src]="dog.image" [alt]="dog.name">
             <p>{{ dog.name }}</p>
             <p>Price: {{ dog.price }}</p>
-            <button (click)="editDog(dog)">Edit</button>
+            <button (click)="editDog(dog.id)">Edit</button>
             <button (click)="deleteDog(dog.id)">Delete</button>
         </div>
     </div>

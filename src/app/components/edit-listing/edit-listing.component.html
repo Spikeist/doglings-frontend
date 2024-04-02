@@ -36,5 +36,5 @@
         <label for="image">Image:</label>
         <input type="file" id="image" name="image" (change)="onImageSelected($event)">
     </div>
-    <button type="submit">Update</button>
+    <button type="button" (click)="updateDog()">Update</button>
 </form>
