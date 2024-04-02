@@ -13,13 +13,11 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(user: any): Observable<any> {
-    console.log(user);
     return this.http.post<any>(`${this.baseUrl}/register`, user);
   }
 
   login(credentials: any): Observable<any> {
-    console.log(credentials)
-    return this.http.post<any>(`${this.baseUrl}/login`, credentials);
+    return this.http.post<any>(`${this.baseUrl}/log-in`, credentials);
   }
 
   redirectToWelcome(): void {
@@ -38,6 +36,6 @@ export class UserService {
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/log-in']);
   }
 }

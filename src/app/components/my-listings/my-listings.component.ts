@@ -46,8 +46,8 @@ export class MyListingsComponent {
     );
   }
 
-  editDog(dog: Dog): void {
-    this.router.navigate(['/edit-listing', dog.id]);
+  editDog(dogId: number): void {
+    this.router.navigate(['/edit-listing', dogId.toString()]);
   }
 
   deleteDog(id: number): void {

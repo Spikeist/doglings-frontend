@@ -21,11 +21,8 @@ export class DogService {
   }
 
   createDogListing(formData: FormData): Observable<any> {
-    console.log(formData);
     const token = localStorage.getItem('token');
-    return this.http.post<any>(`${this.baseUrl}/post-listing`, formData, 
-    {headers: {'Authorization': `Bearer ${token}`}}
-    );
+    return this.http.post<any>(`${this.baseUrl}/post-listing`, formData, {headers: {'Authorization': `Bearer ${token}`}});
   }
 
   redirectToMyListings(): void {
@@ -45,7 +42,7 @@ export class DogService {
     return this.http.delete<void>(url);
   }
 
-  editDogInfo(dog: Dog): Observable<void> {
+  updateDogInfo(dog: Dog): Observable<void> {
     const url = `${this.baseUrl}/dogs/${dog.id}`;
     return this.http.put<void>(url, dog);
   }

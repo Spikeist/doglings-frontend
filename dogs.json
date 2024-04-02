@@ -1,21 +1,12 @@
 {
   "dogs": [
     {
-      "id": "0",
-      "name": "Lilly",
-      "breed": "Yorkie",
-      "age": "12",
-      "gender": "female",
-      "price": 500,
-      "location": "Oklahoma City, OK"
-    },
-    {
       "id": "d327",
       "name": "Happy",
       "breed": "blue heeler",
       "age": "14",
       "gender": "female",
-      "price": 800,
+      "price": 900,
       "location": "Oklahoma City, OK"
     },
     {
