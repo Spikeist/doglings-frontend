@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { Dog } from '../models/dog.model';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,28 @@ export class DogService {
   }
 
   createDogListing(formData: any): Observable<any> {
-    console.log(formData);
     const token = localStorage.getItem('token');
-    return this.http.post<any>(`${this.baseUrl}/post-listing`, formData, {headers: {'Authorization': `Bearer ${token}`}});
+    return this.http.post<any>(
+      `${this.baseUrl}/post-listing`,
+      formData,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    ).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error creating listing:', error); // Add this line to log the error
+        if (error.status === 400) {
+          if (error.error && error.error.errors) {
+            const validationErrors = error.error.errors.map((err: any) => err.message);
+            return throwError(validationErrors);
+          }
+        }
+        return throwError('An error occurred while creating the dog listing.');
+      })
+    );
   }
 
   redirectToMyListings(): void {
@@ -44,7 +64,7 @@ export class DogService {
   }
 
   updateDogInfo(dog: Dog): Observable<void> {
-    const url = `${this.baseUrl}/dogs/${dog.id}`;
+    const url = `${this.baseUrl}/edit/${dog.dogId}`;
     return this.http.put<void>(url, dog);
   }
 }
