@@ -13,7 +13,7 @@ export class MyListingsComponent {
   unsoldDogs: Dog[] = [];
   soldDogs: Dog[] = [];
   dog: Dog = { 
-    id: 0, 
+    dogId: 0, 
     name: '', 
     price: 0, 
     gender: '', 

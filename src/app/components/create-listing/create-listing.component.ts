@@ -11,27 +11,33 @@ export class CreateListingComponent {
   formData: any = {};
   selectedFile: File | null = null;
 
-  constructor(private router: Router, private dogService: DogService) {}
+  constructor(private router: Router, private dogService: DogService) { }
 
   submitListing(): void {
-    const formData = new FormData();
-    formData.append('name', this.formData.name);
-    formData.append('breed', this.formData.breed);
-    formData.append('age', this.formData.age);
-    formData.append('price', this.formData.price);
-    formData.append('disability', this.formData.disability ?? false);
-    formData.append('gender', this.formData.gender);
-    
-    // if (this.selectedFile) {
-    //   formData.append('image', this.selectedFile, this.selectedFile.name);
-    // }
-  
-    // if (this.formData.allergies) {
-    //   formData.append('allergies', this.formData.allergies);
-    // }
+    console.log('Form Data:', this.formData);
+
+    let formData = new FormData();
+
+    console.log('Name:', this.formData.name);
+    console.log('Breed:', this.formData.breed);
+    console.log('Age:', this.formData.age);
+    console.log('Price:', this.formData.price);
+    console.log('Gender:', this.formData.gender);
+    console.log('Image:', this.formData.image);
+    console.log('Allergies:', this.formData.allergies);
+    console.log('Disability:', this.formData.disability);
+
+    if (!this.formData.allergies) {
+      this.formData.allergies = "none";
+    }
+    this.formData.disability = !!this.formData.disability;
 
     console.log(this.formData);
-    
+    console.log('Allergies:', this.formData.allergies);
+    console.log('Disability:', this.formData.disability);
+
+    console.log('FormData:', this.formData);
+
     this.dogService.createDogListing(this.formData).subscribe(
       response => {
         console.log('Listing created successfully:', response);
@@ -44,7 +50,7 @@ export class CreateListingComponent {
     );
   }
 
-  // onFileSelected(event: any): void {
-  //   this.selectedFile = event.target.files[0];
-  // }
+  onFileSelected(event: any): void {
+    this.formData.image = event.target.value;
+  }
 }
