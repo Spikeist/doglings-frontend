@@ -17,7 +17,7 @@ export class UserService {
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/log-in`, credentials);
+    return this.http.post<any>(`${this.baseUrl}/login`, credentials);
   }
 
   redirectToWelcome(): void {

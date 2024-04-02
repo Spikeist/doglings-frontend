@@ -30,7 +30,7 @@ export class DogService {
   }
 
   getRandomDogs(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/random`);
+    return this.http.get<any[]>(`${this.baseUrl}/`);
   }
 
   getDogInfo(id: string): Observable<Dog> {
