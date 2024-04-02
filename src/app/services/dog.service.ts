@@ -20,7 +20,8 @@ export class DogService {
     return this.http.get<any[]>(this.baseUrl);
   }
 
-  createDogListing(formData: FormData): Observable<any> {
+  createDogListing(formData: any): Observable<any> {
+    console.log(formData);
     const token = localStorage.getItem('token');
     return this.http.post<any>(`${this.baseUrl}/post-listing`, formData, {headers: {'Authorization': `Bearer ${token}`}});
   }
