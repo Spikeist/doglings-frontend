@@ -22,15 +22,17 @@ export class CreateListingComponent {
     formData.append('disability', this.formData.disability ?? false);
     formData.append('gender', this.formData.gender);
     
-    if (this.selectedFile) {
-      formData.append('image', this.selectedFile, this.selectedFile.name);
-    }
+    // if (this.selectedFile) {
+    //   formData.append('image', this.selectedFile, this.selectedFile.name);
+    // }
   
-    if (this.formData.allergies) {
-      formData.append('allergies', this.formData.allergies);
-    }
+    // if (this.formData.allergies) {
+    //   formData.append('allergies', this.formData.allergies);
+    // }
+
+    console.log(this.formData);
     
-    this.dogService.createDogListing(formData).subscribe(
+    this.dogService.createDogListing(this.formData).subscribe(
       response => {
         console.log('Listing created successfully:', response);
         this.dogService.redirectToMyListings();
@@ -42,7 +44,7 @@ export class CreateListingComponent {
     );
   }
 
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
-  }
+  // onFileSelected(event: any): void {
+  //   this.selectedFile = event.target.files[0];
+  // }
 }
