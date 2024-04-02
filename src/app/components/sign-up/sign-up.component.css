@@ -1,14 +1,20 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap'); */
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .login-link {
     position: fixed;
     bottom: 20px;
     right: 20px;
     text-align: right;
 }
-
 .login-link p {
     margin: 0;
 }
-
 .login-link button {
     background-color: #007bff;
     color: white;
@@ -16,7 +22,137 @@
     padding: 10px 20px;
     cursor: pointer;
 }
-
 .login-link button:hover {
     background-color: #0056b3;
 }
+
+main, input{
+    font-family:  sans-serif;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFDFBB;
+}
+
+.box{
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    height: 640px;
+    background-color: #e09f3e;
+    border-radius: 3.3rem;
+    box-shadow: 0 60px 40px -30px rgb(0, 0, 0, 0.10);
+}
+
+.sign-up-box{
+    position: absolute;
+    width: calc(100% - 4.1rem);
+    height: calc(100% - 4.1rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2rem;
+    background-color: #FFFFFc;
+}
+
+form{
+    max-width: 260px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.heading h2{
+    font-size: 2.1rem;
+    font-weight: 600;
+    /* color: ; */
+}
+
+.heading h6{
+    color: #bbb;
+    font-weight: 400;
+    font-size: 0.75rem;
+    display: inline;
+}
+
+.switch{
+    color: black;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.switch:hover{
+    color: #9e2a2b;
+}
+
+.input-wrap{
+    position: relative;
+    height: 37px;
+    margin-bottom: 0.5rem;
+}
+
+.input-field{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #bbb;
+    padding: 0%;
+    font-size: 0.95rem;
+    color: black;
+    transition: .4s;
+}
+
+label{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: #bbb;
+    pointer-events: none;
+    transition: .4s;
+}
+
+.input-field.active{
+    border-bottom-color: black;
+}
+
+.input-field.active + label{
+    font-size: .75rem;
+    top: -1px;
+}
+
+.sign-btn{
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+}
+
+.sign-btn:hover{
+    background-color: #9e2a2b;
+}
+
+

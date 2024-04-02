@@ -12,6 +12,20 @@ export class SignUpComponent {
 
   constructor(private userService: UserService, private router: Router) {}
 
+  ngOnInit(): void {
+    const inputs = document.querySelectorAll<HTMLInputElement>(".input-field");
+
+    inputs.forEach((inp) => {
+      inp.addEventListener("focus", ()=> {
+        inp.classList.add("active");
+      });
+      inp.addEventListener("blur", () => {
+        if(inp.value != "") return;
+        inp.classList.remove("active")
+      })
+    });
+  }
+
   signUp(): void {
     this.userService.signUp(this.formData).subscribe(
       response => {
@@ -25,3 +39,4 @@ export class SignUpComponent {
     );
   }
 }
+
