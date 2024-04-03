@@ -59,8 +59,14 @@ export class DogService {
   }
 
   deleteDogListing(id: string): Observable<void> {
-    const url = `${this.baseUrl}/delete/:id${id}`;
-    return this.http.delete<void>(url);
+    const token = localStorage.getItem('token');
+    const url = `${this.baseUrl}/delete/${id}`;
+    return this.http.delete<void>(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateDogInfo(dog: Dog): Observable<void> {
