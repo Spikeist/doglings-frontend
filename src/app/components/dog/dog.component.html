@@ -1,22 +1,27 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="isLoggedIn()">
-    <div *ngIf="dog">
-        <h2>{{ dog.name }}</h2>
-        <p>Breed: {{ dog.breed }}</p>
-        <p>Age: {{ dog.age }}</p>
-        <p>Gender: {{ dog.gender }}</p>
-        <p>Allergies: {{ dog.allergies }}</p>
-        <p>Disability: {{ dog.disability ? 'Yes' : 'No' }}</p>
+<div class="container">
+    <div *ngIf="isLoggedIn()" class="dog-info">
+        <div *ngIf="dog" class="dog-details">
+            <h2>{{ dog.name }}</h2>
+            <p>Breed: {{ dog.breed }}</p>
+            <p>Age: {{ dog.age }}</p>
+            <p>Gender: {{ dog.gender }}</p>
+            <p>Allergies: {{ dog.allergies }}</p>
+            <p>Disability: {{ dog.disability ? 'Yes' : 'No' }}</p>
+        </div>
+        <div *ngIf="!dog" class="error-message">
+            <p>Sorry, the requested dog information is not available.</p>
+        </div>
+
+        <div *ngIf="user" class="user-info">
+            <h3>User Information:</h3>
+            <p>Name: {{ user.firstName }} {{ user.lastName }}</p>
+            <p>Email: {{ user.email }}</p>
+        </div>
     </div>
 
-    <div *ngIf="user">
-        <h3>User Information:</h3>
-        <p>Name: {{ user.firstName }} {{ user.lastName }}</p>
-        <p>Email: {{ user.email }}</p>
+    <div *ngIf="!isLoggedIn()" class="login-message">
+        <p>Please log in to access this content.</p>
     </div>
-</div>
-
-<div *ngIf="!isLoggedIn()">
-    <p>Please log in to access this content.</p>
 </div>

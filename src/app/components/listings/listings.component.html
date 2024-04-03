@@ -1,28 +1,38 @@
 <app-navbar></app-navbar>
 
-<input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
+<div class="container"  style="background-color: #EFDFBB;">
+    <div class="filters">
+        <div>
+            <input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
+        </div>
 
-<label>
-    <input type="radio" name="gender" value="female" [(ngModel)]="genderFilter"> Female
-</label>
-<label>
-    <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
-</label>
-<label>
-    <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference&nbsp;&nbsp;
-</label>
+        <div>
+            <label>
+                <input type="radio" name="gender" value="female" [(ngModel)]="genderFilter"> Female
+            </label>
+            <label>
+                <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference&nbsp;&nbsp;
+            </label>
+        </div>
 
-Max Price:<input type="text" [(ngModel)]="maxPrice" placeholder="Max Price">
+        <br>
 
-<button (click)="applyFilter()">Apply Filter</button>
+        <div>
+            Max Price:<input type="text" [(ngModel)]="maxPrice" placeholder="Max Price">
+        </div>
 
-<div *ngFor="let breed of filteredBreeds">
-    <h1>{{ breed }}</h1>
-    <div *ngFor="let dog of dogs">
-        <ng-container *ngIf="dog.breed.toUpperCase() === breed.toUpperCase()">
-            <a [routerLink]="['/dog', dog.id]">{{ dog.name }}</a>
+        <button (click)="applyFilter()">Apply Filter</button>
+    </div>
+
+    <div *ngFor="let breed of filteredBreeds" class="listing">
+        <h1>{{ breed }}</h1>
+        <div *ngFor="let dog of filteredDogs[breed]">
+            <a [routerLink]="['/dog', dog.dogId]">{{ dog.name }}</a>
             <img src="assets/dog.jpg" alt="Dog Image">
             <p>Price: {{ dog.price }}</p>
-        </ng-container>
+        </div>
     </div>
 </div>

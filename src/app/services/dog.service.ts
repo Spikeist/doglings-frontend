@@ -17,8 +17,9 @@ export class DogService {
     return this.http.get<Dog[]>(`${this.baseUrl}/`);
   }
 
-  getDogs(): Observable<any[]> {
-    return this.http.get<any[]>(this.baseUrl);
+  getDogs(userId: string): Observable<Dog[]> {
+    const url = `${this.baseUrl}?userId=${userId}`;
+    return this.http.get<Dog[]>(url);
   }
 
   createDogListing(formData: any): Observable<any> {
@@ -34,7 +35,7 @@ export class DogService {
       }
     ).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error('Error creating listing:', error); // Add this line to log the error
+        console.error('Error creating listing:', error);
         if (error.status === 400) {
           if (error.error && error.error.errors) {
             const validationErrors = error.error.errors.map((err: any) => err.message);

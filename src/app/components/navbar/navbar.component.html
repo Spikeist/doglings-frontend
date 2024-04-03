@@ -1,11 +1,11 @@
-<nav>
-    <ul>
-        <li><a routerLink="/welcome" routerLinkActive="active">Welcome</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-        <li><a routerLink="/listings" routerLinkActive="active">Listings</a></li>
-        <li *ngIf="userService.isLoggedIn()"><a routerLink="/my-listings">My Listings</a></li>
-        <li><a routerLink="/sign-up" routerLinkActive="active">Sign Up</a></li>
-        <li><a routerLink="/log-in" routerLinkActive="active">Log In</a></li>
-        <li *ngIf="userService.isLoggedIn()"><a (click)="logout()">Logout</a></li>
+<nav class="navbar">
+    <ul class="nav-list">
+        <li class="nav-item"><a routerLink="/welcome" routerLinkActive="active">Welcome</a></li>
+        <li class="nav-item"><a routerLink="/about" routerLinkActive="active">About</a></li>
+        <li class="nav-item"><a routerLink="/listings" routerLinkActive="active">Listings</a></li>
+        <li *ngIf="userService.isLoggedIn()" class="nav-item"><a routerLink="/my-listings">My Listings</a></li>
+        <li class="nav-item"><a routerLink="/sign-up" routerLinkActive="active">Sign Up</a></li>
+        <li class="nav-item"><a routerLink="/log-in" routerLinkActive="active">Log In</a></li>
+        <li *ngIf="userService.isLoggedIn()" class="nav-item"><a (click)="logout()">Logout</a></li>
     </ul>
 </nav>

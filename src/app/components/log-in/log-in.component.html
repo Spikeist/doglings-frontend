@@ -1,4 +1,4 @@
-<a href="javascript:history.back()" style="color: blue; position: absolute; top: 10px; left: 10px;">Back</a>
+<a href="javascript:history.back()" class="back-link">Back</a>
 
 <div class="login-container">
   <form (ngSubmit)="login()">
@@ -10,11 +10,11 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
     </div>
-    <button type="submit">Log In</button>
+    <button type="submit" class="login-button">Log In</button>
   </form>
 
   <div class="signup-link">
     <p>Don't have an account yet?</p>
-    <button type="button" routerLink="/sign-up">Sign Up</button>
+    <button type="button" routerLink="/sign-up" class="signup-button">Sign Up</button>
   </div>
 </div>
