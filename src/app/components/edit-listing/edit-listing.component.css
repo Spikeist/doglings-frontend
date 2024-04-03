@@ -1,0 +1,51 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-link {
+    color: #09f;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+}
+
+form {
+    background-color: #EFDFBB;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    color: #e09f3e;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    margin-top: 5px;
+}
+
+.update-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-button:hover {
+    background-color: #333;
+}

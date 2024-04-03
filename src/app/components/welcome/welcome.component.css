@@ -1,0 +1,48 @@
+.welcome-content {
+    padding: 20px;
+}
+
+.dogs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dog-item {
+    margin-right: 20px;
+}
+
+.dog-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gianna-info {
+    display: flex;
+    align-items: center;
+}
+
+.gianna-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.adopt-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.adopt-button:hover {
+    background-color: #EFDFBB;
+    color: #000;
+}
+
+.welcome-content hr {
+    border-color: #e09f3e;
+}

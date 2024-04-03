@@ -1,33 +1,43 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="isLoggedIn()">
-    <button (click)="redirectToCreateListing()">Create Listing</button>
+<div *ngIf="isLoggedIn()" class="my-listings-container">
+    <button (click)="redirectToCreateListing()" class="create-listing-button">Create Listing</button>
 
     <h2>My Listings</h2>
 
     <h3>Yet to be sold:</h3>
-    <div *ngFor="let dog of unsoldDogs">
+    <div *ngFor="let dog of unsoldDogs" class="dog-item">
         <div class="dog-item">
-            <img [src]="dog.image" [alt]="dog.name" alt=''>
+            <ng-container *ngIf="dog.image">
+                <img [src]="dog.image" [alt]="dog.name">
+            </ng-container>
+            <ng-container *ngIf="!dog.image">
+                <p class="no-image-text">No image available</p>
+            </ng-container>
             <p>{{ dog.name }}</p>
             <p>Price: {{ dog.price }}</p>
-            <button (click)="editDog(dog.dogId)">Edit</button>
-            <button (click)="deleteDog(dog.dogId)">Delete</button>
+            <button (click)="editDog(dog.dogId)" class="edit-button">Edit</button>
+            <button (click)="deleteDog(dog.dogId)" class="delete-button">Delete</button>
         </div>
     </div>
 
     <hr>
 
     <h3>Sold:</h3>
-    <div *ngFor="let dog of soldDogs">
+    <div *ngFor="let dog of soldDogs" class="dog-item">
         <div class="dog-item">
-            <img [src]="dog.image" [alt]="dog.name" alt="">
+            <ng-container *ngIf="dog.image">
+                <img [src]="dog.image" [alt]="dog.name">
+            </ng-container>
+            <ng-container *ngIf="!dog.image">
+                <p class="no-image-text">No image available</p>
+            </ng-container>
             <p>{{ dog.name }}</p>
             <p>Price: {{ dog.price }}</p>
         </div>
     </div>
 </div>
 
-<div *ngIf="!isLoggedIn()">
+<div *ngIf="!isLoggedIn()" class="login-required-message">
     <p>Please log in to access this content.</p>
 </div>

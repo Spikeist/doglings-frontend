@@ -1,22 +1,67 @@
-.signup-link {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    text-align: right;
+.back-link {
+    color: #09f;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
 }
 
-.signup-link p {
-    margin: 0;
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #EFDFBB;
+    border-radius: 8px;
 }
 
-.signup-link button {
-    background-color: #007bff;
-    color: white;
-    border: none;
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #e09f3e;
+}
+
+input[type="username"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-button {
+    background-color: #000;
+    color: #fff;
     padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.signup-link button:hover {
-    background-color: #0056b3;
+.login-button:hover {
+    background-color: #333;
+}
+
+.signup-link {
+    text-align: center;
+}
+
+.signup-link p {
+    margin-bottom: 10px;
+}
+
+.signup-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: #333;
 }

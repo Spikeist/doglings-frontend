@@ -1,6 +1,7 @@
-<a href="javascript:history.back()" style="color: blue;">Back</a>
+<a href="javascript:history.back()" class="back-link">Back</a>
 
-<form (submit)="submitListing()">
+<div class="container">
+  <form (submit)="submitListing()">
     <div>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
@@ -37,4 +38,5 @@
       <input type="text" id="image" name="image" [(ngModel)]="formData.image">
     </div>
     <button type="submit">Submit Listing</button>
-</form>
+  </form>
+</div>

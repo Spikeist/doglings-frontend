@@ -1,0 +1,58 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.filters {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.listing {
+    margin-bottom: 20px;
+}
+
+.listing h1 {
+    color: #e09f3e;
+}
+
+.listing a {
+    color: #000;
+    text-decoration: none;
+}
+
+.listing a:hover {
+    text-decoration: underline;
+}
+
+.listing img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}

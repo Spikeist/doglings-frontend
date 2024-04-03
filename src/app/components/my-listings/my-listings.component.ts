@@ -12,17 +12,17 @@ import { UserService } from 'src/app/services/user.service';
 export class MyListingsComponent {
   unsoldDogs: Dog[] = [];
   soldDogs: Dog[] = [];
-  dog: Dog = { 
-    dogId: 0, 
-    name: '', 
-    price: 0, 
-    gender: '', 
+  dog: Dog = {
+    dogId: 0,
+    name: '',
+    price: 0,
+    gender: '',
     image: '',
     breed: '',
     age: 0,
     sold: false,
     userId: ''
-  }; 
+  };
 
   constructor(private router: Router, private dogService: DogService, private userService: UserService) { }
 
@@ -35,15 +35,22 @@ export class MyListingsComponent {
   }
 
   loadDogs(): void {
-    this.dogService.getDogs().subscribe(
-      (dogs: Dog[]) => {
-        this.unsoldDogs = dogs.filter(dog => !dog.sold);
-        this.soldDogs = dogs.filter(dog => dog.sold);
-      },
-      error => {
-        console.error('Error fetching dogs:', error);
+    if (this.userService.isLoggedIn()) {
+      const userId = localStorage.getItem('userId');
+      console.log('User ID:', userId); // Add this line to log userId
+      if (userId) {
+        this.dogService.getDogs(userId).subscribe(
+          (dogs: Dog[]) => {
+            console.log('Dogs:', dogs); // Add this line to log fetched dogs
+            this.unsoldDogs = dogs.filter(dog => !dog.sold);
+            this.soldDogs = dogs.filter(dog => dog.sold);
+          },
+          error => {
+            console.error('Error fetching dogs:', error);
+          }
+        );
       }
-    );
+    }
   }
 
   editDog(dogId: number): void {
