@@ -71,7 +71,13 @@ export class DogService {
   }
 
   updateDogInfo(dog: Dog): Observable<void> {
+    const token = localStorage.getItem('token');
     const url = `${this.baseUrl}/edit/${dog.dogId}`;
-    return this.http.put<void>(url, dog);
+    return this.http.put<void>(url, dog, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
   }
 }
