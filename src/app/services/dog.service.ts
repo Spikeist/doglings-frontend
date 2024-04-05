@@ -17,9 +17,24 @@ export class DogService {
     return this.http.get<Dog[]>(`${this.baseUrl}/`);
   }
 
-  getDogs(userId: string): Observable<Dog[]> {
-    const url = `${this.baseUrl}?userId=${userId}`;
-    return this.http.get<Dog[]>(url);
+  // getDogs(): Observable<Dog[]> {
+  //   const token = localStorage.getItem('token');
+  //   return this.http.get<Dog[]>(this.baseUrl, {
+  //     headers: {
+  //       'Authorization': `Bearer ${token}`,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+  // }
+
+  getMyDogs(): Observable<Dog[]> {
+    const token = localStorage.getItem('token');
+    return this.http.get<Dog[]>(`${this.baseUrl}/my-dogs`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
   createDogListing(formData: any): Observable<any> {

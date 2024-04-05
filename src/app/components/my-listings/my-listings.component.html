@@ -5,11 +5,11 @@
 
     <h2>My Listings</h2>
 
-    <h3>Yet to be sold:</h3>
-    <div *ngFor="let dog of unsoldDogs" class="dog-item">
+    <!-- <h3>Yet to be sold:</h3> -->
+    <div *ngFor="let dog of allDogs" class="dog-item">
         <div class="dog-item">
             <ng-container *ngIf="dog.image">
-                <img [src]="dog.image" [alt]="dog.name">
+                <img [src]="dog.image" [alt]="dog.name" alt=`${dog.name}`>
             </ng-container>
             <ng-container *ngIf="!dog.image">
                 <p class="no-image-text">No image available</p>
@@ -21,13 +21,13 @@
         </div>
     </div>
 
-    <hr>
+    <!-- <hr> -->
 
-    <h3>Sold:</h3>
+    <!-- <h3>Sold:</h3>
     <div *ngFor="let dog of soldDogs" class="dog-item">
         <div class="dog-item">
             <ng-container *ngIf="dog.image">
-                <img [src]="dog.image" [alt]="dog.name">
+                <img [src]="dog.image" [alt]="dog.name" alt=`${dog.name}`>
             </ng-container>
             <ng-container *ngIf="!dog.image">
                 <p class="no-image-text">No image available</p>
@@ -36,7 +36,7 @@
             <p>Price: {{ dog.price }}</p>
         </div>
     </div>
-</div>
+</div> -->
 
 <div *ngIf="!isLoggedIn()" class="login-required-message">
     <p>Please log in to access this content.</p>
