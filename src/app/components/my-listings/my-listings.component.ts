@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MyListingsComponent {
   allDogs: Dog[] = [];
-  soldDogs: Dog[] = [];
+  // soldDogs: Dog[] = [];
   dog: Dog = {
     dogId: 0,
     name: '',
