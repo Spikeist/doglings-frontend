@@ -15,6 +15,7 @@ import { CreateListingComponent } from './components/create-listing/create-listi
 import { DogComponent } from './components/dog/dog.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

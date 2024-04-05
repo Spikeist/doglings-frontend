@@ -10,8 +10,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./my-listings.component.css']
 })
 export class MyListingsComponent {
-  unsoldDogs: Dog[] = [];
-  soldDogs: Dog[] = [];
+  allDogs: Dog[] = [];
+  // soldDogs: Dog[] = [];
   dog: Dog = {
     dogId: 0,
     name: '',
@@ -39,11 +39,12 @@ export class MyListingsComponent {
       const userId = localStorage.getItem('userId');
       console.log('User ID:', userId);
       if (userId) {
-        this.dogService.getDogs(userId).subscribe(
+        this.dogService.getMyDogs().subscribe(
           (dogs: Dog[]) => {
-            console.log('Dogs:', dogs);
-            this.unsoldDogs = dogs.filter(dog => !dog.sold);
-            this.soldDogs = dogs.filter(dog => dog.sold);
+            console.log('Dogs:', dogs); // Add this line to log fetched dogs
+            this.allDogs = dogs;
+            // this.soldDogs = dogs.filter(dog => dog.sold);
+
           },
           error => {
             console.error('Error fetching dogs:', error);
