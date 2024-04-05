@@ -37,11 +37,11 @@ export class MyListingsComponent {
   loadDogs(): void {
     if (this.userService.isLoggedIn()) {
       const userId = localStorage.getItem('userId');
-      console.log('User ID:', userId); // Add this line to log userId
+      console.log('User ID:', userId);
       if (userId) {
         this.dogService.getDogs(userId).subscribe(
           (dogs: Dog[]) => {
-            console.log('Dogs:', dogs); // Add this line to log fetched dogs
+            console.log('Dogs:', dogs);
             this.unsoldDogs = dogs.filter(dog => !dog.sold);
             this.soldDogs = dogs.filter(dog => dog.sold);
           },

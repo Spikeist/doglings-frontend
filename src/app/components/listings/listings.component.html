@@ -31,7 +31,7 @@
         <h1>{{ breed }}</h1>
         <div *ngFor="let dog of filteredDogs[breed]">
             <a [routerLink]="['/dog', dog.dogId]">{{ dog.name }}</a>
-            <img src="assets/dog.jpg" alt="Dog Image">
+            <img [src]="dog.image" alt="Dog Image">
             <p>Price: {{ dog.price }}</p>
         </div>
     </div>
