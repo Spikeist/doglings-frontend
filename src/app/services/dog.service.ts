@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { Dog } from '../models/dog.model';
-import { catchError } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,23 @@ export class DogService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getDogListings(): Observable<Dog[]> {
-    return this.http.get<Dog[]>(`${this.baseUrl}/`);
+  getDogListings(queryParams: any, headers: any): Observable<Dog[]> {
+    const url = `${this.baseUrl}/`;
+    console.log('Fetching dog listings from:', url);
+    return this.http.get<Dog[]>(url, { params: queryParams, headers: headers })
+      .pipe(
+        tap((data: Dog[]) => {
+          console.log('Received dog listings:', data);
+        }),
+        catchError((error: any) => {
+          console.error('Error fetching dog listings:', error);
+          return throwError('An error occurred while fetching dog listings.'); // Pass the error along
+        })
+      );
   }
 
   getDogs(userId: string): Observable<Dog[]> {
-    const url = `${this.baseUrl}?userId=${userId}`;
+    const url = `${this.baseUrl}/my-dogs?userId=${userId}`;
     return this.http.get<Dog[]>(url);
   }
 
