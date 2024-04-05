@@ -41,7 +41,7 @@ export class MyListingsComponent {
       if (userId) {
         this.dogService.getMyDogs().subscribe(
           (dogs: Dog[]) => {
-            console.log('Dogs:', dogs); // Add this line to log fetched dogs
+            console.log('Dogs:', dogs);
             this.allDogs = dogs;
             // this.soldDogs = dogs.filter(dog => dog.sold);
 

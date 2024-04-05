@@ -27,12 +27,14 @@
         <button (click)="applyFilter()">Apply Filter</button>
     </div>
 
-    <div *ngFor="let breed of filteredBreeds" class="listing">
-        <h1>{{ breed }}</h1>
-        <div *ngFor="let dog of filteredDogs[breed]">
-            <a [routerLink]="['/dog', dog.dogId]">{{ dog.name }}</a>
-            <img [src]="dog.image" alt="Dog Image">
-            <p>Price: {{ dog.price }}</p>
+    <ng-container *ngFor="let breed of filteredBreeds">
+        <div *ngIf="filteredDogs[breed].length > 0" class="listing">
+            <h1>{{ breed }}</h1>
+            <div *ngFor="let dog of filteredDogs[breed]">
+                <a [routerLink]="['/dog', dog.dogId]">{{ dog.name }}</a>
+                <img [src]="dog.image" alt="Dog Image">
+                <p>Price: {{ dog.price }}</p>
+            </div>
         </div>
-    </div>
+    </ng-container>
 </div>
