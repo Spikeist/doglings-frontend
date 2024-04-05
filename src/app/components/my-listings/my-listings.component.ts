@@ -37,13 +37,14 @@ export class MyListingsComponent {
   loadDogs(): void {
     if (this.userService.isLoggedIn()) {
       const userId = localStorage.getItem('userId');
-      console.log('User ID:', userId); // Add this line to log userId
+      console.log('User ID:', userId);
       if (userId) {
         this.dogService.getMyDogs().subscribe(
           (dogs: Dog[]) => {
             console.log('Dogs:', dogs); // Add this line to log fetched dogs
             this.allDogs = dogs;
             // this.soldDogs = dogs.filter(dog => dog.sold);
+
           },
           error => {
             console.error('Error fetching dogs:', error);
