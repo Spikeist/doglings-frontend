@@ -1,11 +1,10 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="isLoggedIn()" class="my-listings-container">
+<!-- <div *ngIf="isLoggedIn()" class="my-listings-container">
     <button (click)="redirectToCreateListing()" class="create-listing-button">Create Listing</button>
 
     <h2>My Listings</h2>
 
-    <!-- <h3>Yet to be sold:</h3> -->
     <div *ngFor="let dog of allDogs" class="dog-item">
         <div class="dog-item">
             <ng-container *ngIf="dog.image">
@@ -21,23 +20,39 @@
         </div>
     </div>
 
-    <!-- <hr> -->
-
-    <!-- <h3>Sold:</h3>
-    <div *ngFor="let dog of soldDogs" class="dog-item">
-        <div class="dog-item">
-            <ng-container *ngIf="dog.image">
-                <img [src]="dog.image" [alt]="dog.name" alt=`${dog.name}`>
-            </ng-container>
-            <ng-container *ngIf="!dog.image">
-                <p class="no-image-text">No image available</p>
-            </ng-container>
-            <p>{{ dog.name }}</p>
-            <p>Price: {{ dog.price }}</p>
-        </div>
-    </div>
-</div> -->
-
 <div *ngIf="!isLoggedIn()" class="login-required-message">
     <p>Please log in to access this content.</p>
-</div>
+</div> -->
+
+<main>
+
+    <div class="heading-area">
+        <h2>My Dogs</h2>
+        <button class="create-btn" (click)="redirectToCreateListing()" >Create Dog Listing</button>
+    </div>
+
+    <div class="listing-area">
+        <div *ngFor="let dog of allDogs" class="dog-item">
+            <div class="listing-box">
+                <div class="dog-box">
+                    <div class="dog-img">
+                        <img [src]="dog.image" [alt]="dog.name" alt=`${{dog.name}}`>
+                    </div>
+    
+                    <div class="dog-content">
+                        <div class="info">
+                            <h3>{{ dog.name }}</h3>
+                            <h5>Price: {{ dog.price }}</h5>
+                        </div>
+    
+                        <div class="buttons">
+                            <button (click)="editDog(dog.dogId)" class="dog-btn edit-button">Edit</button>
+                            <button (click)="deleteDog(dog.dogId)" class="dog-btn delete-button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

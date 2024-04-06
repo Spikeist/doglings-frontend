@@ -1,57 +1,97 @@
-.my-listings-container {
-    max-width: 800px;
-    margin: 0 auto;
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.heading-area{
     padding: 20px;
-    background-color: #EFDFBB;
-    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.create-listing-button {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 20px;
+.listing-area{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, auto));
+    align-items: center;
+    text-align: center;
 }
 
-.create-listing-button:hover {
-    background-color: #333;
+img{
+    padding: 20px;
+    width: 300px;
 }
 
-.dog-item {
-    margin-bottom: 20px;
+.listing-box{
+    display: flex;
+    justify-content: center;
+}
+
+.dog-box{
+    width: 80%;
+    border-radius: 4%;
+    background-color: #EFDFBBed;
+}
+
+.info{
+    padding: 0px 10px;
+}
+
+.buttons{
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
 }
 
-.no-image-text {
-    color: #666;
+.dog-btn{
+    width: 45%;
 }
 
-.edit-button,
-.delete-button {
-    background-color: #000;
-    color: #fff;
-    padding: 8px 16px;
+button{
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
+    border-radius: 0.8rem;
+    color: white;
 }
 
-.edit-button:hover,
-.delete-button:hover {
-    background-color: #333;
+.edit-button{
+    background-color: green;
+    transition: 0.3s;
 }
 
-.login-required-message {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #EFDFBB;
-    border-radius: 8px;
+.edit-button:hover{
+    background-color: #9e2a2b;
+}
+
+.delete-button{
+    background-color: rgb(209, 47, 47);
+    transition: 0.3s;
+}
+
+.delete-button:hover{
+    background-color: #9e2a2b;
+}
+
+h2{
+    font-weight: 500;
+}
+
+.create-btn{
+    background-color: #9e2a2b;
+    width: 25%;
+    transition: 0.3s;
+}
+
+.create-btn:hover{
+    
 }
