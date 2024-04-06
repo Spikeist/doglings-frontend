@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
-import { map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +49,19 @@ export class UserService {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     this.router.navigate(['/log-in']);
+  }
+
+  getUserInfo(queryParams:any): Observable<User>{
+    const url = `${this.baseUrl}`;
+    return this.http.get<User>(url, {params: queryParams})
+    .pipe(
+      tap((data: User) => {
+        console.log('Received user info:', data);
+      }),
+      catchError((error: any) => {
+        console.error('Error fetching user info:', error);
+        return throwError('An error occurred while fetching user information.');
+      })
+    )
   }
 }

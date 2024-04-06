@@ -28,17 +28,6 @@ export class DogService {
       );
   }
 
-
-  // getDogs(): Observable<Dog[]> {
-  //   const token = localStorage.getItem('token');
-  //   return this.http.get<Dog[]>(this.baseUrl, {
-  //     headers: {
-  //       'Authorization': `Bearer ${token}`,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
-  // }
-
   getMyDogs(): Observable<Dog[]> {
     const token = localStorage.getItem('token');
     return this.http.get<Dog[]>(`${this.baseUrl}/my-dogs`, {

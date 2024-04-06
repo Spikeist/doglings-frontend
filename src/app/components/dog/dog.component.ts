@@ -27,9 +27,11 @@ export class DogComponent implements OnInit {
         dog => {
           this.dog = dog;
           if (dog && dog.userId) {
-            this.userService.getUser(dog.userId.toString()).subscribe(
+            const queryParams = {id: dog.userId}
+            this.userService.getUserInfo(queryParams).subscribe(
               user => {
                 this.user = user;
+                console.log('info is',user)
               },
               error => {
                 console.error('Error fetching user:', error);
@@ -47,6 +49,7 @@ export class DogComponent implements OnInit {
       console.error('No dog ID provided in the URL.');
     }
   }
+
 
   isLoggedIn(): boolean {
     return this.userService.isLoggedIn();
