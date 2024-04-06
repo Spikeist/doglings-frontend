@@ -3,7 +3,7 @@
 <div class="welcome-content">
   <h2>A Few Dog Postings:</h2>
   <div class="dogs">
-    <div class="dog-item" *ngFor="let dog of dogs">
+    <div class="dog-item" *ngFor="let dog of randomDogs">
       <img [src]="dog.image" [alt]="dog.name" alt="">
       <p>{{ dog.name }}</p>
     </div>
