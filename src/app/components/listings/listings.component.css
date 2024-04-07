@@ -1,4 +1,4 @@
-.container {
+/* .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -55,4 +55,138 @@ button:hover {
     width: 100px;
     height: 100px;
     margin-right: 10px;
+} */
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.header{
+    padding: 20px;
+}
+
+.filter-container{
+    width: 100%;
+    height: 15vh;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    /* background-color: red; */
+}
+
+.filters{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.radios label{
+    padding: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-price{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-price input{
+    width: 75%;
+    height: 100%;
+}
+
+.search-btn{
+    width: 100%;
+    align-self: flex-end;
+}
+
+.search-btn button{
+    width: 100%;
+    background-color: #9e2a2b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.all-listings{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: red; */
+}
+
+.listing-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.listing-header{
+    padding: 10px;
+}
+
+.listing-content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.listing{
+    padding: 20px;
+    margin: auto 20px;
+    border-radius: 5%;
+    background-color: #EFDFBBed;
+}
+
+img{
+    width: 300px;
+}
+
+.listing-info a{
+
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.listing-info a:hover{
+    color: #9e2a2b;
 }

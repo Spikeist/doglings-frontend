@@ -2,26 +2,33 @@
 
 <div class="container">
     <div *ngIf="isLoggedIn()" class="dog-info">
-        <div *ngIf="dog" class="dog-details">
-            <h2>{{ dog.name }}</h2>
-            <p>Breed: {{ dog.breed }}</p>
-            <p>Age: {{ dog.age }}</p>
-            <p>Gender: {{ dog.gender }}</p>
-            <p>Allergies: {{ dog.allergies }}</p>
-            <p>Disability: {{ dog.disability ? 'Yes' : 'No' }}</p>
+        <div class="info-section">
+            <div *ngIf="dog" class="dog-details">
+                <h2>{{ dog.name }}</h2>
+                <p>Breed: {{ dog.breed }}</p>
+                <p>Age: {{ dog.age }}</p>
+                <p>Gender: {{ dog.gender }}</p>
+                <p>Allergies: {{ dog.allergies }}</p>
+                <p>Disability: {{ dog.disability ? 'Yes' : 'No' }}</p>
+            </div>
+    
+            <div *ngIf="user" class="user-info">
+                <h3>User Information:</h3>
+                <p>Name: {{ user.firstName }} {{ user.lastName }}</p>
+                <p>Email: {{ user.email }}</p>
+            </div>
         </div>
-        <div *ngIf="!dog" class="error-message">
-            <p>Sorry, the requested dog information is not available.</p>
-        </div>
-
-        <div *ngIf="user" class="user-info">
-            <h3>User Information:</h3>
-            <p>Name: {{ user.firstName }} {{ user.lastName }}</p>
-            <p>Email: {{ user.email }}</p>
+        <div *ngIf="dog" class="dog-img">
+            <img [src]="dog.image" alt="dog" >
         </div>
     </div>
 
+    <div *ngIf="!dog" class="error-message">
+        <p>Sorry, the requested dog information is not available.</p>
+    </div>
+
     <div *ngIf="!isLoggedIn()" class="login-message">
-        <p>Please log in to access this content.</p>
+        <h1>Error 404</h1>
+        <h2>Please log in to access this content</h2>
     </div>
 </div>

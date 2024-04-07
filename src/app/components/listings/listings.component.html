@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="container"  style="background-color: #EFDFBB;">
+<!-- <div class="container"  style="background-color: #EFDFBB;">
     <div class="filters">
         <div>
             <input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
@@ -37,4 +37,62 @@
             </div>
         </div>
     </ng-container>
-</div>
+</div> -->
+
+<main>
+    <div class="header">
+        <h1>Dogs For Adoption!</h1>
+    </div>
+
+    <div class="filter-container">
+        <div class="search-bar">
+            <input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
+        </div>
+
+        <div class="filters">
+            <div class="radios">
+                <label>
+                    <input type="radio" name="gender" value="female" [(ngModel)]="genderFilter"> Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference&nbsp;&nbsp;
+                </label>
+            </div>
+            
+            <div class="search-price">
+                <h6>Max Price:</h6>
+                <input  type="text" [(ngModel)]="maxPrice" placeholder="Max Price">
+            </div>
+
+            <div class="search-btn">
+                <button (click)="applyFilter()">Apply Filter</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-listings">
+        <ng-container *ngFor="let breed of filteredBreeds">
+            <div *ngIf="filteredDogs[breed].length > 0" class="listing-section">
+                <div class="listing-header">
+                    <h2>{{ breed }}</h2>
+                </div>
+
+                <div class="listing-content">
+                    <div *ngFor="let dog of filteredDogs[breed]" class="listing">
+                        <div class="listing-img">
+                            <img [src]="dog.image" alt="Dog Image">
+                        </div>
+    
+                        <div class="listing-info">
+                            <h4><a [routerLink]="['/dog', dog.dogId]">{{ dog.name }}</a></h4>
+                            <p>Price: {{ dog.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</main>
