@@ -5,9 +5,16 @@
 }
 
 .dog-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #EFDFBB;
     padding: 20px;
     border-radius: 8px;
+}
+
+img{
+    width: 300px;
 }
 
 .dog-details h2 {
